@@ -15,7 +15,7 @@ export class AemetService {
   getMunicipios(): Observable<Municipio[]> {
     return this.http.get<Municipio[]>(`/api/municipios`);
   }
-
+//comentario test
   getPrediccionMunDiaSig(idMunicipio: string, unidadMedida: string): Observable<PrediccionMunDiaSig> {
     return this.http.get<PrediccionMunDiaSig>(`/api/prediccionDiaSiguiente?idMunicipio=${idMunicipio}&unidadMedida=${unidadMedida}`);
   }
