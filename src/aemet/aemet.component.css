@@ -1,0 +1,63 @@
+.example-form {
+  min-width: 250px;
+  max-width: 700px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 65%;
+  padding: 10px;
+}
+.municipio {
+  color: black;
+  font-weight: bold;
+  font-size: 40px;
+  margin-top: 20px;
+}
+
+.grados {
+  color: black;
+  font-weight: bold;
+  font-size: 70px;
+}
+
+.temp {
+  font-size: 30px;
+  color: black;
+  font-weight: bold;
+}
+
+.mat-header-cell,
+.mat-cell {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.containerMun {
+  margin: 30px;
+}
+
+.containerTemp {
+  margin: 10px;
+}
+
+ .containerImg {
+   width: 45%;
+   margin-left: 20px;
+ }
+
+.table-container {
+  flex: 1;
+}
+
+.container2 {
+  display: flex;
+  align-items: center;
+}
+

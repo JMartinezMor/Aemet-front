@@ -1,0 +1,65 @@
+<form class="example-form">
+  <div class="container">
+    <mat-form-field class="example-full-width">
+      <mat-label>Municipio</mat-label>
+      <input type="text"
+             placeholder="Escribe el nombre del municipio"
+             aria-label="Municipio"
+             matInput
+             [formControl]="myControl"
+             [matAutocomplete]="auto">
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="onMunicipioOptionSelected($event)">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Grados</mat-label>
+      <mat-select [(value)]="selectedGrados" (selectionChange)="onGradosSelectionChange($event)">
+        <mat-option value="G_CEL" >ºC</mat-option>
+        <mat-option value="G_FAH">ºF</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="containerMun">
+    <p class="municipio">{{nombreMunicipio}}</p>
+    <p  class="municipio">{{ getFechaManianaToString() }}</p>
+  </div>
+
+  <div class="containerTemp">
+    <p class="containerMun">
+      <span class="grados">{{ prediccionMunDiaSig.mediaTemperatura }}</span>
+      <span class="temp" *ngIf="prediccionMunDiaSig.unidadTemperatura === 'G_CEL'"> °C </span>
+      <span class="temp" *ngIf="prediccionMunDiaSig.unidadTemperatura === 'G_FAH'"> °F </span>
+    </p>
+  <div class="container2" >
+    <table mat-table class="table-container " [dataSource]="prediccionMunDiaSig.probPrecipitacion">
+      <ng-container matColumnDef="valor">
+        <th mat-header-cell *matHeaderCellDef>Porcentaje de precipitación</th>
+        <td mat-cell *matCellDef="let prob">{{ prob.value }}%</td>
+      </ng-container>
+
+      <ng-container matColumnDef="periodo">
+        <th mat-header-cell *matHeaderCellDef>Periodo</th>
+        <td mat-cell *matCellDef="let prob">{{ prob.periodo }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['valor', 'periodo']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['valor', 'periodo']"></tr>
+    </table>
+
+    <div class="containerImg" *ngIf="showImages">
+      <ng-container *ngIf="prediccionMunDiaSig.probPrecipitacion">
+        <img *ngIf="sumaValor(prediccionMunDiaSig.probPrecipitacion) < 33" [src]=img1 alt="Soleado">
+        <img class="containerImg2" *ngIf="sumaValor(prediccionMunDiaSig.probPrecipitacion) >= 33 && sumaValor(prediccionMunDiaSig.probPrecipitacion) <= 66" [src]=img2 alt="Nublado">
+        <img class="containerImg3" *ngIf="sumaValor(prediccionMunDiaSig.probPrecipitacion) > 66" [src]=img3 alt="LLuvioso">
+      </ng-container>
+    </div>
+  </div>
+
+  </div>
+</form>
+
