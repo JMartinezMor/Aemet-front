@@ -29,7 +29,6 @@ export class AemetComponent implements OnInit {
   img2= "assets/img/nublado.png";
   img3= "assets/img/lluvioso.png";
 
-//test
   constructor(aemetService: AemetService) {
     this.aemetService = aemetService;
     this.prediccionMunDiaSig =  new PrediccionMunDiaSig();
