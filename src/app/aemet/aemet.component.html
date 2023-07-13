@@ -30,11 +30,12 @@
   </div>
 
   <div class="containerTemp">
-    <p class="containerMun">
+    <p class="containerMun" *ngIf="prediccionMunDiaSig.mediaTemperatura!=-1">
       <span class="grados">{{ prediccionMunDiaSig.mediaTemperatura }}</span>
       <span class="temp" *ngIf="prediccionMunDiaSig.unidadTemperatura === 'G_CEL'"> °C </span>
       <span class="temp" *ngIf="prediccionMunDiaSig.unidadTemperatura === 'G_FAH'"> °F </span>
     </p>
+
   <div class="container2" >
     <table mat-table class="table-container " [dataSource]="prediccionMunDiaSig.probPrecipitacion">
       <ng-container matColumnDef="valor">
@@ -62,4 +63,3 @@
 
   </div>
 </form>
-

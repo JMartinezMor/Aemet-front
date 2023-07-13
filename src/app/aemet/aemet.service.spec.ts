@@ -2,7 +2,6 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { AemetService } from './aemet.service';
 import { Municipio } from '../model/municipio';
-import { PrediccionMunDiaSig } from '../model/prediccionMunDiaSig';
 
 describe('AemetService', () => {
   let service: AemetService;

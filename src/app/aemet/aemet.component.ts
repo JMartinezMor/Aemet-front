@@ -3,8 +3,6 @@ import { FormControl } from '@angular/forms';
 import {debounceTime, Observable} from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { AemetService } from './aemet.service';
-//import { Municipio } from '../../../../Aemet-ASV/Aemet-front/src/model/municipio';
-//import { PrediccionMunDiaSig } from '../../../../Aemet-ASV/Aemet-front/src/model/prediccionMunDiaSig';
 
 import {MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
 import {Municipio} from "../model/municipio";
@@ -29,7 +27,6 @@ export class AemetComponent implements OnInit {
   img2= "assets/img/nublado.png";
   img3= "assets/img/lluvioso.png";
 
-  //tyest
   constructor(aemetService: AemetService) {
     this.aemetService = aemetService;
     this.prediccionMunDiaSig =  new PrediccionMunDiaSig();
