@@ -1,9 +1,7 @@
-FROM node:18-alpine as build-step
-RUN mkdir -p /app
+FROM node:18-alpine
 WORKDIR /app
-COPY package.json /app
+COPY . .
 RUN npm install
-COPY . /app
-RUN npm run build --prod
-FROM nginx:1.17.1-alpine
-COPY --from=build-step /app/dist/aemet-front /usr/share/nginx/html
+EXPOSE 4200
+CMD ["npm","start"]
+
